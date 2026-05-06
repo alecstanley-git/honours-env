@@ -1,0 +1,71 @@
+\documentclass{article}
+
+% -- PACKAGES --
+\usepackage[utf8]{inputenc}
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    maxcitenames=2, % "Author & Author" for 2, "Author et al." for 3+ in text
+    maxbibnames=8,  % Truncate to et al. in the bibliography if more than 8 authors
+    uniquelist=false,
+    uniquename=false,
+    giveninits=true % Uses initials for first names
+]{biblatex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[skip=5pt]{parskip}
+\usepackage[left=2cm, right=2cm, top=1.5cm, bottom=1.5cm]{geometry}
+% -------------
+
+% -- PACKAGE CONFIGURATIONS --
+\addbibresource{references.bib} % Link to .bib file
+
+% Variables
+\newcommand{\plotsize}{0.6}
+
+% Section numbering
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{(\alph{section})}
+% ----------------------------
+
+% Title features
+\title{Assignment 2}
+\author{Alec Stanley\thanks{Student ID: 33963975} \\
+\vspace{0.1cm}
+\small ASP3231}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question 1}
+hello
+
+\subsection{This is a subsection}
+Hello\cite{asp3231}
+
+\section{Question 2}
+
+\section{Question 3}
+
+
+%% -- REFERENCING GUIDELINES FROM MICHAEL --
+% Use a referencing style similar to astronomical journals which should include abbreviations for journal names and generally doesn't include article titles. The references should be alphabetical by author name and in-text citations should be chronological and follow author-year format (i.e. Nould & Breeman 2004, Bethe 2009). Articles with more than 3 authors should use the first author name and then et al. for in-text citations.
+% biblatex should handle this automatically. Try not to write the .bib entry by hand, always copy-paste the .bib format directly from the article or NASA's ADS database.
+% Michael says no need to provide references for stuff that is 'common knowledge' in the astrophysics community, i.e. Kepler's laws.
+%% -----------------------------------------
+
+\printbibliography[heading=bibnumbered]
+
+\clearpage % Only need a new page for appendices (this is convention in astro papers) everything else should flow continuously without major page breaks
+\appendix % Changes section numbering from 1, 2, 3 to A, B, C
+
+\end{document}
