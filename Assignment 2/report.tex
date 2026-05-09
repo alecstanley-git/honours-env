@@ -47,13 +47,15 @@
 \maketitle
 
 \section{}
-The ideal diffraction limited solution refers to the maximum theoretical resolution a lens can achieve, assuming there are no lens imperfections. The only resolution arises from the physical diffraction itself. The Rayleigh criterion defines the angular resolution as
+The ideal diffraction limited solution refers to the maximum theoretical resolution a lens can achieve, assuming there are no lens imperfections. The only resolution arises from the physical diffraction itself. The standard approximation defines the angular resolution as
 
 \begin{equation}
-	\theta=\frac{1.22\lambda}{D}.
+	\theta\approx\frac{\lambda}{D}.
 \end{equation}
 
-	Given a wavelength of 2.15 microns and a 10.5 metre diameter, $\theta=2.498\cdot10^{-7}$ radians, or 51.53 milliarcseconds.
+Given a wavelength of 2.15 microns and a 10.5 metre diameter, $\theta=2.04762\cdot10^{-7}$ radians, or 42.24 milliarcseconds. Given the Keck telescope is only about 30\% larger than the ideal limit, this indicates that some atmospheric blurring or other imperfections are present on the telescope.
+
+The Strehl ratio is a percentage from 0 to 1 the defines how 'perfect' the peak intensity of the point spread function is. This refers to how the telescope responds to a single point of light, and it can be affected by atmospheric turbulence and impurities. The Strehl ratio of 0.4 indicates it is 40\% of the ideal system (which sits at 1.0), which is still considered very good for ground-based telescopes.
 
 \subsection{}
 (\cite{asp3231})
