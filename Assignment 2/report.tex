@@ -29,10 +29,6 @@
 
 % Variables
 \newcommand{\plotsize}{0.6}
-
-% Section numbering
-\renewcommand{\thesection}{\arabic{section}.}
-\renewcommand{\thesubsection}{(\alph{section})}
 % ----------------------------
 
 % Title features
@@ -46,7 +42,9 @@
 
 \maketitle
 
-\section{}
+\section*{Question 1}
+
+\subsection*{1a.}
 The ideal diffraction limited solution refers to the maximum theoretical resolution a lens can achieve, assuming there are no lens imperfections. The only resolution arises from the physical diffraction itself. The standard approximation defines the angular resolution as
 
 \begin{equation}
@@ -57,12 +55,73 @@ Given a wavelength of 2.15 microns and a 10.5 metre diameter, $\theta=2.04762\cd
 
 The Strehl ratio is a percentage from 0 to 1 the defines how 'perfect' the peak intensity of the point spread function is. This refers to how the telescope responds to a single point of light, and it can be affected by atmospheric turbulence and impurities. The Strehl ratio of 0.4 indicates it is 40\% of the ideal system (which sits at 1.0), which is still considered very good for ground-based telescopes.
 
-\subsection{}
-(\cite{asp3231})
+\subsection*{1b.}
+Typical natural guide star systems require the guide star to measure the overall image motion (tip tilt) as well as the aberrations of the light. To measure these aberrations, the light is split up into hundreds of tiny apertures, meaning the guide star needs to be much brighter otherwise it would essentially receive no light. The Keck LGSAO system, however, uses an artificial laser to plant a bright star high in the earth's atmosphere, which is used to determine these aberrations. The natural guide star, therefore, is only used to measure the tip-tilt, meaning it can be far fainter than typical as its light is being captured by the full sensor.
 
-\section{}
+\subsection*{1c.}
+The Fried length $r_0$ is defined to be the typical size effective at a wavelength of $0.5\mu\textup{m}$ (\cite{Rieke}). Since we want to find the isoplanatic angle at $2.15\mu\textup{m}$, we need to scale the length. Since $r_0\propto\lambda^{6/5}$ (\cite{Rieke}),
 
-\section{}
+\begin{equation*}
+r_0=r_0|_{0.5\mu\textup m}\cdot\left(\frac{2.15}{0.5}\right)^{6/5}=1.44\textup m,
+\end{equation*}
+
+using the given values.
+
+The isoplanatic angle, applying the small angle approximation (\cite{Rieke}) is given by
+
+\begin{equation}
+    \theta_0=0.31\frac{r_0} h.
+\end{equation}
+
+Using the scaled $r_0$ value and the altitude of 1800m, the isoplanatic angle is $2.479\cdot10^{-4}$ radians, or 51.12 arcseconds.
+
+\subsection*{1d.}
+The main difference is that JWST is in space, and the Keck LGSAO telescope is on the ground. Earth's atmosphere absorbs most of the incoming infrared light, including the high redshift light, and combined with the infrared emission of the atmosphere and the telescope itself, makes it extremely difficult to obtain spectra of highly redshifted galaxies.
+
+\section*{Question 2}
+
+\subsection*{2a.}
+These are X-rays.
+
+\subsection*{2b.}
+To convert between keV and erg, we can divide the values by $6.242\cdot10^8$. The energy range is between $0.801-6.41\cdot10^{-9}$ erg, and hence the typical energy (average) is $3.6\cdot10^{-9}$ erg.
+
+\subsection*{2c.}
+The total energy from the absorbed photons will be the number of photon counts (124) multiplied by the energy per photon ($3.6\cdot10^{-9}$ erg).
+
+\begin{equation*}
+    E_\textup{total}=4.46\cdot10^{-7}\textup{ erg}.
+\end{equation*}
+
+The flux is the energy per unit area per second, or
+
+\begin{equation}
+    F=\frac{E_\textup{total}}{A_\textup{eff}\times t}.
+\end{equation}
+
+Using an effective area of 1.5 cm$^2$ and an exposure time of 100 seconds, this evaluates to $2.98\cdot10^{-9}$ erg cm$^{-2}$ s$^{-1}$.
+
+\subsection*{2d.}
+Over the 100 second exposure at 0.3 counts per second, there were 30 background counts. So the total count is 154 counts. The count uncertainty will be
+
+\begin{equation*}
+\sigma_\textup{counts}=\sqrt{N}\approx12.4\textup{ counts},
+\end{equation*}
+
+resulting in a fractional uncertainty of $\frac{12.4}{124}\approx0.1$.
+
+The 1-$\sigma$ uncertainty in the flux is the flux multiplied by this fractional uncertainty, $\approx2.98\cdot10^{-10}$ erg cm$^{-2}$ s$^{-1}$.
+
+\subsection*{2e.}
+The spectral flux density is the total flux divided by the range
+
+\section*{Question 3}
+
+\subsection*{3a.}
+
+\subsection*{3b.}
+
+\subsection*{3c.}
 
 \printbibliography[heading=bibnumbered]
 
