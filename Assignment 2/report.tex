@@ -21,7 +21,7 @@
 \usepackage{microtype}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[skip=5pt]{parskip}
-\usepackage[left=2cm, right=2cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 % -------------
 
 % -- PACKAGE CONFIGURATIONS --
@@ -53,7 +53,7 @@ The ideal diffraction limited solution refers to the maximum theoretical resolut
 
 Given a wavelength of 2.15 microns and a 10.5 metre diameter, $\theta=2.04762\cdot10^{-7}$ radians, or 42.24 milliarcseconds. Given the Keck telescope is only about 30\% larger than the ideal limit, this indicates that some atmospheric blurring or other imperfections are present on the telescope.
 
-The Strehl ratio is a percentage from 0 to 1 the defines how 'perfect' the peak intensity of the point spread function is. This refers to how the telescope responds to a single point of light, and it can be affected by atmospheric turbulence and impurities. The Strehl ratio of 0.4 indicates it is 40\% of the ideal system (which sits at 1.0), which is still considered very good for ground-based telescopes.
+The Strehl ratio is a percentage from 0 to 1 the defines how 'perfect' the peak intensity of the point spread function is (\cite{asp3231}). This refers to how the telescope responds to a single point of light, and it can be affected by atmospheric turbulence and impurities. The Strehl ratio of 0.4 indicates it is 40\% of the ideal system (which sits at 1.0), which is still considered very good for ground-based telescopes.
 
 \subsection*{1b.}
 Typical natural guide star systems require the guide star to measure the overall image motion (tip tilt) as well as the aberrations of the light. To measure these aberrations, the light is split up into hundreds of tiny apertures, meaning the guide star needs to be much brighter otherwise it would essentially receive no light. The Keck LGSAO system, however, uses an artificial laser to plant a bright star high in the earth's atmosphere, which is used to determine these aberrations. The natural guide star, therefore, is only used to measure the tip-tilt, meaning it can be far fainter than typical as its light is being captured by the full sensor.
@@ -76,7 +76,7 @@ The isoplanatic angle, applying the small angle approximation (\cite{Rieke}) is 
 Using the scaled $r_0$ value and the altitude of 1800m, the isoplanatic angle is $2.479\cdot10^{-4}$ radians, or 51.12 arcseconds.
 
 \subsection*{1d.}
-The main difference is that JWST is in space, and the Keck LGSAO telescope is on the ground. Earth's atmosphere absorbs most of the incoming infrared light, including the high redshift light, and combined with the infrared emission of the atmosphere and the telescope itself, makes it extremely difficult to obtain spectra of highly redshifted galaxies.
+The main difference is that JWST is in space, and the Keck LGSAO telescope is on the ground. Earth's atmosphere absorbs most of the incoming infrared light, including the high redshift light, and combined with the infrared emission of the atmosphere and the telescope itself, makes it extremely difficult to obtain spectra of highly redshifted galaxies from the ground.
 
 \section*{Question 2}
 
@@ -113,15 +113,40 @@ resulting in a fractional uncertainty of $\frac{12.4}{124}\approx0.1$.
 The 1-$\sigma$ uncertainty in the flux is the flux multiplied by this fractional uncertainty, $\approx2.98\cdot10^{-10}$ erg cm$^{-2}$ s$^{-1}$.
 
 \subsection*{2e.}
-The spectral flux density is the total flux divided by the range
+The spectral flux density measures the amount of energy per unit time per unit area per unit frequency. Since the flux itself is the energy per unit time and area, we need to divide by the frequency range. Planck's constant helps with this, where
+
+\begin{equation*}
+    E=h\nu\Longrightarrow\Delta\nu = \frac{3.5\textup{ keV}}{4.136\cdot10^{-18}\textup{ keV s}}\approx8.462\cdot10^{17}\textup{ Hz}.
+\end{equation*}
+
+Now we can divide the peak flux by the frequency range.
+
+\begin{equation*}
+    F_\nu=\frac{F}{\Delta\nu}=\frac{2.98\cdot10^{-9}\textup{ erg cm}^{-2}\textup{ s}^{-1}}{8.462\cdot10^{17}\textup{ Hz}}\approx3.517\cdot10^{-27}\textup{ erg cm}^{-2}\textup{ s}^{-1}\textup{ Hz}^{-1}.
+\end{equation*}
+
+Given 1 Jy is equivalent to $10^{-23}\textup{ erg cm}^{-2}\textup{ s}^{-1}\textup{ Hz}^{-1}$, the spectral flux density is $3.517\cdot10^{-4}$ Jy.
 
 \section*{Question 3}
 
 \subsection*{3a.}
+\textbf{Reason 1:} These are two different statistics. A 90\% confidence region means that there is a 90\% chance that the true x-ray source lies within the boundary, not that any random object in the boundary has a 90\% chance of being the actual source.
+
+\textbf{Reason 2.} Another reason this is wrong is that inside the boundary there would be hundreds of unrelated galaxies and transients. You'd need to take the surface area of the boundary and multiply it by the density of similar transients occurring across the whole sky (which would need to be known).
+
+\textbf{Reason 3.} Lastly, we can clearly see that inside the region there is the transient, a host galaxy, and a foreground star. We know they cannot all be the x-ray source, so this is not a sufficient metric.
 
 \subsection*{3b.}
+Given the radius of 10 arcseconds, the 90\% confidence boundary area is 100$\pi$ arcsec$^2$ or 0.0873 arcmin$^2$. The expected number of random galaxies is the density times this area,
+
+\begin{equation*}
+    N=0.5\textup{ arcmin}^{-2}\cdot0.0873\textup{ arcmin}^2\approx0.0436\textup{ galaxies}.
+\end{equation*}
+
+The probability of finding a random galaxy here is modelled by Poisson statistics (\cite{Rieke}), where $P=1-e^{-N}$. This evaluates to a 4.3\% chance of any labelled galaxy inside the region not being associated with the transient (just a random galaxy).
 
 \subsection*{3c.}
+In defining an association probability, we basically want to determine how likely it is that the events are associated. We already calculated a spatial probability in part (b), making it rare enough as it is. Finding an optical transient that occurs only a few hours after a nearby x-ray transient is far less likely. We can multiply this spatial probability by a temporal probability. Such a result would be extremely low, making it much more likely the events are associated.
 
 \printbibliography[heading=bibnumbered]
 
