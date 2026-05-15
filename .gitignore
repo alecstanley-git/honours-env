@@ -5,4 +5,5 @@
 pyproject.toml
 uv.lock
 Observing-Local/Aligned*
+Observing-Local/ScaledAligned*
 .DS_Store
