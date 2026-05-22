@@ -1,0 +1,76 @@
+\documentclass{article}
+
+% -- PACKAGES --
+\usepackage[utf8]{inputenc}
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    maxcitenames=2, % "Author & Author" for 2, "Author et al." for 3+ in text
+    maxbibnames=8,  % Truncate to et al. in the bibliography if more than 8 authors
+    uniquelist=false,
+    uniquename=false,
+    giveninits=true % Uses initials for first names
+]{biblatex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[skip=5pt]{parskip}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+% -------------
+
+% -- PACKAGE CONFIGURATIONS --
+\addbibresource{references.bib} % Link to .bib file
+
+% Variables
+\newcommand{\plotsize}{0.6}
+% ----------------------------
+
+% Title features
+\title{ASP3231 Assignment 3}
+\author{Alec Stanley\\
+\vspace{0.1cm}
+\small ID: 33963975}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+
+\subsection*{1a.}
+Wien's Displacement Law relates the wavelength at which a blackbody is most radiant to the inverse of its temperature. It is defined under the assumption that the object is a perfectly radiating blackbody, which is a typical assumption for analysing most stars. It follows that
+
+\begin{equation}
+    \lambda_\textup{max}=\frac{2.898\cdot10^{-3}\textup{m}\cdot\textup{K}}T.
+\end{equation}
+
+On the t=1.43 days graph in Figure 1, the wavelength that is emitted at the highest flux (intensity) is approximately $1.2\cdot10^{3}$ angstroms, or $1.2\cdot10^{-7}$ metres. Hence, the temperature of the object 1.43 days after the explosion is $\approx2.415\cdot10^{4}$ K.
+
+\subsection*{1b.}
+
+\subsection*{1c.}
+
+\subsection*{1d.}
+
+\subsection*{1e.}
+
+\section*{Question 2}
+
+\subsection*{2a.}
+
+\subsection*{2b.}
+
+\subsection*{2c.}
+
+\subsection*{2d.}
+
+\printbibliography[heading=bibnumbered]
+
+\end{document}
