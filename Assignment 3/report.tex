@@ -67,20 +67,77 @@ The flux at $10^4$ angstroms of the object over time actually remains fairly con
 For a blackbody, flux is directly proportional to temperature and the solid angle. Assuming the flux remains mostly constant, and the temperature is decreasing, the solid angle must be increasing over time. This physically represents the expansion of the supernova. Finding an exact size would require knowledge of the distance to the supernova.
 
 \subsection*{1e.}
-The proportionality described in Q1d is known as the Rayleigh-Jeans approximation and is given by
+Based on the previous estimates and given values we have a temperature of 24150 K, an $f_\lambda$ of $10^{-9}$ erg s$^{-1}$ cm$^{-3}$, a distance of $9.2\cdot10^{26}$ cm, and a wavelength of $10^{-4}$ cm (all in CGS units). The solid angle is calculated by
 
 \begin{equation}
-    B_\nu=.
+    \Omega=\frac{\pi R^2}{d^2}.
+    \label{eqn:omega}
 \end{equation}
+
+We can then use this value where
+
+\begin{equation}
+    f_\lambda=B_\lambda \Omega.
+    \label{eqn:flam}
+\end{equation}
+
+To get $B_\lambda$ using our flux $f_\lambda$, we want to convert the provided $B_\nu$ formula to be per unit wavelength. This is given as
+
+\begin{equation}
+    B_\lambda=B_\nu\frac{c}{\lambda^2}=\frac{2ckT}{\lambda^4}.
+    \label{eqn:blam}
+\end{equation}
+
+Alright, working backwards we can start with finding $B_\lambda$ using Equation \ref{eqn:blam}. $c$ and $k$ are provided constants, and we have the temperature and wavelength. Again, all values are in CGS. We have
+
+\begin{equation*}
+    B_\lambda=1.998\cdot10^{15}\textup{ erg s}^{-1}\textup{ cm}^{-3}\textup{ sr}^{-1}.
+\end{equation*}
+
+Putting $B_\lambda$ and the approximate $f_\lambda$ into Equation \ref{eqn:flam} will get us the solid angle
+
+\begin{equation*}
+    \Omega=5.004\cdot10^{-25}\textup{ sr}.
+\end{equation*}
+
+And lastly Equation \ref{eqn:omega} will give us the radius of the supernova, which comes out to
+
+\begin{equation*}
+    R=3.67\cdot10^{14}\textup{ cm}\approx5276\textup{ solar radii}.
+\end{equation*}
 
 \section*{Question 2}
 
 \subsection*{2a.}
+The approximate value of $f_\lambda$ at 3 microns is $0.8\cdot10^{-21}$ erg s$^{-1}$ cm$^{-2}$ \r{A}$^{-1}$. This is equivalent to $0.8\cdot10^{-20}$ W m$^{-2}$ $\mu$m$^{-1}$. The energy of a single photon at $\lambda=3$ microns is given by
+
+\begin{equation*}
+    E_\textup{photon}=\frac{hc}{\lambda}=6.62\cdot10^{-20}\textup{ J.}
+\end{equation*}
+
+We can divide the flux by the energy of a single photon to obtain
+
+\begin{equation*}
+    \textup{Flux Density} = \frac{f_\lambda}{E_\textup{photon}}\approx0.12\textup{ photons s}^{-1}\textup{ m}^{-2}\textup{ }\mu\textup{m}^{-1}.
+\end{equation*}
 
 \subsection*{2b.}
+It is given that the primary mirror diameter of JWST is 6.5 metres. Hence, the circular collecting area $A=\pi(\frac d 2)^2$ is approximately 33.18 m$^2$. The counts in units of photons per pixel would be the number of source photons per second per square metre per micron (Q2a) multiplied by the collecting area, the exposure time, and the linear disperson (microns per pixel). This works out as
+
+\begin{equation*}
+    \textup{Counts}=0.12\cdot33.18\cdot33612\cdot0.014\approx1874\textup{ photons/pixel}.
+\end{equation*}
 
 \subsection*{2c.}
+The ideal signal to noise, if dominated by Poisson noise, is given to be
+
+\begin{equation*}
+    \textup{SNR}_\textup{max}=\frac{N}{\sqrt{N}}=\sqrt 1874\approx43.
+\end{equation*}
+
+Looking at the figure, the observed noise spans roughly $0.4\cdot10^{-21}$ around a value of $0.8\cdot10^{-21}$, resulting in a signal to noise ratio of 2.
 
 \subsection*{2d.}
+The observed signal to noise ratio was far lower than the idealised case. In reality, there is much more background radiation coming from the sky as well as thermal energy from the telescope, which all produce more noise. Another key reason is the read noise, which is introduced when counting the charge per pixel. Another physical limitation is the small slit size on the NIRSPEC which means that lots of the galaxy light won't be detected. All these reasons contribute to a much smaller signal to noise ratio.
 
 \end{document}
